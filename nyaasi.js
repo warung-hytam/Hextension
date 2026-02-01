@@ -1,9 +1,6 @@
-import AbstractSource from './abstract.js'
-
-export default new class NyaaSi extends AbstractSource {
+export default new class NyaaSi {
   base = 'https://torrent-search-api-livid.vercel.app/api/nyaasi/'
 
-  /** @type {import('./').SearchFunction} */
   async single({ titles, episode }) {
     if (!titles?.length) return []
 
@@ -18,7 +15,6 @@ export default new class NyaaSi extends AbstractSource {
     return this.map(data)
   }
 
-  /** @type {import('./').SearchFunction} */
   batch = this.single
   movie = this.single
 
