@@ -1,18 +1,18 @@
 export default new class NyaaSi {
-  base = 'https://torrent-search-api-livid.vercel.app/api/nyaasi/'
+  base = atob('aHR0cHM6Ly8wY2RlZmIzYzY3LjkyMS5iaXouaWQvYXBpL255YWE=')
 
   async single({ titles, episode }) {
     if (!titles?.length) return []
 
     const query = this.buildQuery(titles[0], episode)
-    const url = `${this.base}${encodeURIComponent(query)}`
+    const url = `${this.base}?q=${encodeURIComponent(query)}`
 
     const res = await fetch(url)
     const data = await res.json()
 
-    if (!Array.isArray(data)) return []
+    if (!Array.isArray(data.items)) return []
 
-    return this.map(data)
+    return this.map(data.items)
   }
 
   batch = this.single
@@ -26,17 +26,17 @@ export default new class NyaaSi {
 
   map(data) {
     return data.map(item => {
-      const hash = item.Magnet?.match(/btih:([a-fA-F0-9]+)/)?.[1] || ''
+      const hash = item.magnet?.match(/btih:([a-fA-F0-9]+)/)?.[1] || ''
 
       return {
-        title: item.Name || '',
-        link: item.Magnet || '',
+        title: item.title || '',
+        link: item.magnet || '',
         hash,
-        seeders: parseInt(item.Seeders || '0'),
-        leechers: parseInt(item.Leechers || '0'),
-        downloads: parseInt(item.Downloads || '0'),
-        size: this.parseSize(item.Size),
-        date: new Date(item.DateUploaded),
+        seeders: parseInt(item.seeders || '0'),
+        leechers: parseInt(item.leechers || '0'),
+        downloads: parseInt(item.downloads || '0'),
+        size: this.parseSize(item.size),
+        date: new Date(item.date),
         verified: false,
         type: 'alt',
         accuracy: 'medium'
@@ -64,7 +64,7 @@ export default new class NyaaSi {
 
   async test() {
     try {
-      const res = await fetch(this.base + 'one piece')
+      const res = await fetch(this.base + '?q=one piece')
       return res.ok
     } catch {
       return false
