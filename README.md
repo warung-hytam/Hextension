@@ -6,7 +6,6 @@ Extension for anime streaming app.
 ## Available Sources
 - animetosho (also **NZB**)
 - nyaa
-- TPB
 - seadex
 
 ### Installation
