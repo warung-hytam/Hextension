@@ -1,8 +1,10 @@
 [
   {
+    "manifestVersion": 2,
+    "deprecated": false,
     "name": "Seadex",
     "id": "seadex",
-    "version": "0.0.2",
+    "version": "0.0.5",
     "type": "torrent",
     "accuracy": "high",
     "ratio": 0,
@@ -15,9 +17,11 @@
     "code": "https://raw.githubusercontent.com/warung-hytam/Hextension/main/seadex.js"
   },
   {
+    "manifestVersion": 2,
+    "deprecated": false,
     "name": "AnimeTosho",
     "id": "animetosho",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "type": "torrent",
     "accuracy": "high",
     "ratio": 0,
@@ -30,9 +34,11 @@
     "code": "https://raw.githubusercontent.com/warung-hytam/Hextension/main/animetosho.js"
   },
   {
+    "manifestVersion": 2,
+    "deprecated": false,
     "name": "AnimeTosho NZB",
     "id": "animetosho-nzb",
-    "version": "0.0.2",
+    "version": "0.0.5",
     "type": "nzb",
     "accuracy": "high",
     "ratio": 0,
@@ -45,6 +51,8 @@
     "code": "https://raw.githubusercontent.com/warung-hytam/Hextension/main/animetosho-nzb.js"
   },
   {
+    "manifestVersion": 2,
+    "deprecated": false,
     "name": "NyaaSi",
     "id": "nyaasi",
     "version": "0.0.10",
